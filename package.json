@@ -3,15 +3,19 @@
   "private": true,
   "scripts": {
     "postinstall": "npm install --prefix remote-angular-v18",
-    "start": "concurrently -n react,angular,angular-v18,shell -c blue,magenta,cyan,green \"npm start -w remote-react\" \"npm start -w remote-angular\" \"npm --prefix remote-angular-v18 start\" \"npm start -w shell\"",
-    "build": "npm run build -w remote-react && npm run build -w remote-angular && npm --prefix remote-angular-v18 run build && npm run build -w shell"
+    "start:remote-angular": "npm start -w remote-angular",
+    "start:remote-react": "npm start -w remote-react",
+    "start:remote-angular-v18": "npm --prefix remote-angular-v18 start",
+    "start:shell": "npm start -w shell",
+    "start": "run-p \"start:*\"",
+    "build": "npm run build -w remote-angular && npm run build -w remote-react && npm --prefix remote-angular-v18 run build && npm run build -w shell"
   },
   "workspaces": [
-    "remote-react",
     "remote-angular",
+    "remote-react",
     "shell"
   ],
   "devDependencies": {
-    "concurrently": "^10.0.3"
+    "npm-run-all2": "^8.0.4"
   }
 }

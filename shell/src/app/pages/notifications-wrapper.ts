@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { loadRemoteModule } from '@softarc/native-federation-runtime';
 
 @Component({
@@ -21,19 +21,23 @@ export class NotificationsWrapperPage implements OnInit, OnDestroy {
   error = '';
   private cleanup: { unmount: () => void } | null = null;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   async ngOnInit() {
     try {
       const m = await loadRemoteModule({
-        remoteEntry: 'http://localhost:3003/remoteEntry.json',
+        remoteName: 'notifications',
         exposedModule: './mount',
       });
 
       const mount = m.mount || m.default?.mount;
       this.cleanup = await mount(this.container.nativeElement);
       this.loading = false;
+      this.cdr.detectChanges();
     } catch (err: any) {
       this.loading = false;
       this.error = err?.message || 'Unknown error';
+      this.cdr.detectChanges();
       console.error('Failed to load remote:', err);
     }
   }

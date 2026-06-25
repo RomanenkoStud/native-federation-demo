@@ -25,7 +25,7 @@ export class ActivityWrapperPage implements OnInit {
   async ngOnInit() {
     try {
       const m = await loadRemoteModule({
-        remoteEntry: 'http://localhost:3002/remoteEntry.json',
+        remoteName: 'activity',
         exposedModule: './ActivityFeed',
       });
 

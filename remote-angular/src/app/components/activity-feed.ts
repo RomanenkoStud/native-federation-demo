@@ -45,7 +45,7 @@ const MOCK_ACTIVITY: ActivityItem[] = [
         }
       </ul>
       <p style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.75rem; text-align: center">
-        This component is served from the Angular remote at <code>localhost:3002</code>
+        This component is served from the Angular remote.
       </p>
     </div>
   `,

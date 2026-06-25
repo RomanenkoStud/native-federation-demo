@@ -63,12 +63,14 @@ export default function ProjectList() {
             {selected === project.id && (
               <div style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: '#374151' }}>
                 Project details for <strong>{project.name}</strong> would load here.
-                This component is served from the React remote at <code>localhost:3001</code>.
               </div>
             )}
           </li>
         ))}
       </ul>
+      <p style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '0.75rem', textAlign: 'center' }}>
+        This component is served from the React remote.
+      </p>
     </div>
   );
 }

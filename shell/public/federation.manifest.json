@@ -1,5 +1,5 @@
 {
-  "mfe1": "http://localhost:3001/remoteEntry.json",
-  "activity": "http://localhost:3002/remoteEntry.json",
+  "activity": "http://localhost:3001/remoteEntry.json",
+  "projects": "http://localhost:3002/remoteEntry.json",
   "notifications": "http://localhost:3003/remoteEntry.json"
 }

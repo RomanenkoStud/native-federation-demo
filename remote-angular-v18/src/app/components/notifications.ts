@@ -56,7 +56,7 @@ const TYPE_ICONS: Record<string, string> = {
         }
       </ul>
       <p style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.75rem; text-align: center">
-        Angular v18 remote at <code>localhost:3003</code>
+        This component is served from the Angular v18 remote.
       </p>
     </div>
   `,

@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "npx tsx build/build.ts",
-    "serve": "live-server dist --port=3001 --cors --no-browser",
-    "start": "npm run build && concurrently \"npx tsx --watch build/build.ts\" \"npm run serve\"",
-    "watch": "concurrently \"npx tsx --watch build/build.ts\" \"npm run serve\""
+    "serve": "npx serve dist -C -l 3002",
+    "start": "npm run build && npm run serve",
+    "dev": "npm run build && concurrently \"npx tsx --watch build/build.ts\" \"npm run serve\""
   },
   "dependencies": {
     "@softarc/native-federation-runtime": "^4.1.1",
@@ -20,7 +20,6 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "esbuild": "^0.28.1",
-    "live-server": "^1.2.2",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   }
