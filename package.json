@@ -2,8 +2,9 @@
   "name": "native-federation-demo",
   "private": true,
   "scripts": {
-    "start": "concurrently -n remote-react,remote-angular,shell -c blue,magenta,green \"npm start -w remote-react\" \"npm start -w remote-angular\" \"npm start -w shell\"",
-    "build": "npm run build -w remote-react && npm run build -w remote-angular && npm run build -w shell"
+    "postinstall": "npm install --prefix remote-angular-v18",
+    "start": "concurrently -n react,angular,angular-v18,shell -c blue,magenta,cyan,green \"npm start -w remote-react\" \"npm start -w remote-angular\" \"npm --prefix remote-angular-v18 start\" \"npm start -w shell\"",
+    "build": "npm run build -w remote-react && npm run build -w remote-angular && npm --prefix remote-angular-v18 run build && npm run build -w shell"
   },
   "workspaces": [
     "remote-react",

@@ -13,4 +13,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/activity-wrapper').then((m) => m.ActivityWrapperPage),
   },
+  {
+    path: 'notifications',
+    loadComponent: () =>
+      import('./pages/notifications-wrapper').then((m) => m.NotificationsWrapperPage),
+  },
 ];
