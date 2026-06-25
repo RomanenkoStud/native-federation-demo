@@ -1,0 +1,5 @@
+{
+  "activity": "https://romanenkostud.github.io/native-federation-demo/remote-angular/remoteEntry.json",
+  "projects": "https://romanenkostud.github.io/native-federation-demo/remote-react/remoteEntry.json",
+  "notifications": "https://romanenkostud.github.io/native-federation-demo/remote-angular-v18/remoteEntry.json"
+}
