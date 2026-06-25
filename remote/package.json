@@ -1,0 +1,27 @@
+{
+  "name": "nf-demo-remote",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsx build/build.ts",
+    "serve": "live-server dist --port=3001 --cors --no-browser",
+    "start": "npm run build && npm run serve",
+    "watch": "concurrently \"npx tsx --watch build/build.ts\" \"npm run serve\""
+  },
+  "dependencies": {
+    "@softarc/native-federation-runtime": "^4.1.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@softarc/native-federation": "^4.2.0",
+    "@softarc/native-federation-esbuild": "^4.0.0",
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "esbuild": "^0.28.1",
+    "live-server": "^1.2.2",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

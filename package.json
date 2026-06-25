@@ -1,0 +1,15 @@
+{
+  "name": "nf-demo",
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n remote,shell -c blue,green \"npm start -w remote\" \"npm start -w shell\"",
+    "build": "npm run build -w remote && npm run build -w shell"
+  },
+  "workspaces": [
+    "remote",
+    "shell"
+  ],
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
