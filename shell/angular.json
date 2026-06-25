@@ -57,6 +57,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/native-federation-demo/",
               "budgets": [
                 {
                   "type": "initial",

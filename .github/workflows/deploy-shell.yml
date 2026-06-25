@@ -1,0 +1,57 @@
+name: Deploy Shell
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'shell/**'
+      - '.github/workflows/deploy-shell.yml'
+  workflow_dispatch:
+
+# Serialize all gh-pages pushes across all four deploy workflows
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: shell/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: shell
+
+      # Replace localhost manifest with production GH Pages URLs.
+      # Each remote is deployed independently to its own subdirectory.
+      - name: Write production federation manifest
+        run: |
+          cat > shell/public/federation.manifest.json << 'EOF'
+          {
+            "activity": "https://romanenkostud.github.io/native-federation-demo/remote-angular/remoteEntry.json",
+            "projects": "https://romanenkostud.github.io/native-federation-demo/remote-react/remoteEntry.json",
+            "notifications": "https://romanenkostud.github.io/native-federation-demo/remote-angular-v18/remoteEntry.json"
+          }
+          EOF
+
+      - name: Build
+        run: npx ng build
+        working-directory: shell
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: shell/dist/nf-demo-shell/browser
+          destination_dir: .
+          keep_files: true
