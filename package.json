@@ -2,11 +2,12 @@
   "name": "nf-demo",
   "private": true,
   "scripts": {
-    "start": "concurrently -n remote,shell -c blue,green \"npm start -w remote\" \"npm start -w shell\"",
-    "build": "npm run build -w remote && npm run build -w shell"
+    "start": "concurrently -n remote,activity,shell -c blue,magenta,green \"npm start -w remote\" \"npm start -w activity\" \"npm start -w shell\"",
+    "build": "npm run build -w remote && npm run build -w activity && npm run build -w shell"
   },
   "workspaces": [
     "remote",
+    "activity",
     "shell"
   ],
   "devDependencies": {

@@ -8,4 +8,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/projects-wrapper').then((m) => m.ProjectsWrapperPage),
   },
+  {
+    path: 'activity',
+    loadComponent: () =>
+      import('./pages/activity-wrapper').then((m) => m.ActivityWrapperPage),
+  },
 ];
