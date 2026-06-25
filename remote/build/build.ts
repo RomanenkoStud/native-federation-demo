@@ -58,7 +58,7 @@ async function build() {
     splitting: true,
     minify: false,
     sourcemap: true,
-    jsx: 'automatic',
+    jsx: 'transform',
     target: 'es2022',
     resolveExtensions: ['.tsx', '.ts', '.jsx', '.js'],
     mainFields: ['es2020', 'browser', 'module', 'main'],

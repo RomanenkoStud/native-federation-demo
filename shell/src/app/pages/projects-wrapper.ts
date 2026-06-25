@@ -1,7 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { loadRemoteModule } from '@softarc/native-federation-runtime';
-import { createElement } from 'react';
-import { createRoot, Root } from 'react-dom/client';
 
 @Component({
   selector: 'app-projects-wrapper',
@@ -21,18 +19,17 @@ export class ProjectsWrapperPage implements OnInit, OnDestroy {
 
   loading = true;
   error = '';
-  private reactRoot: Root | null = null;
+  private cleanup: { unmount: () => void } | null = null;
 
   async ngOnInit() {
     try {
       const m = await loadRemoteModule({
         remoteName: 'mfe1',
-        exposedModule: './ProjectList',
+        exposedModule: './mount',
       });
 
-      const ProjectList = m.default || m.ProjectList;
-      this.reactRoot = createRoot(this.container.nativeElement);
-      this.reactRoot.render(createElement(ProjectList));
+      const mount = m.mount || m.default?.mount;
+      this.cleanup = mount(this.container.nativeElement);
       this.loading = false;
     } catch (err: any) {
       this.loading = false;
@@ -42,6 +39,6 @@ export class ProjectsWrapperPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.reactRoot?.unmount();
+    this.cleanup?.unmount();
   }
 }

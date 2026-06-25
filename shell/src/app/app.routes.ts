@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomePage } from './pages/home';
-import { ProjectsWrapperPage } from './pages/projects-wrapper';
 
 export const routes: Routes = [
   { path: '', component: HomePage },
-  { path: 'projects', component: ProjectsWrapperPage },
+  {
+    path: 'projects',
+    loadComponent: () =>
+      import('./pages/projects-wrapper').then((m) => m.ProjectsWrapperPage),
+  },
 ];

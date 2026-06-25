@@ -4,15 +4,8 @@ export default withNativeFederation({
   name: 'remote-projects',
 
   exposes: {
-    './ProjectList': './src/components/ProjectList.tsx',
+    './mount': './src/mount.tsx',
   },
 
-  shared: {
-    ...shareAll({
-      singleton: true,
-      strictVersion: true,
-      requiredVersion: 'auto',
-      includeSecondaries: false,
-    }),
-  },
+  shared: {},
 });
