@@ -1,0 +1,10 @@
+{
+  "name": "notifications",
+  "shared": [],
+  "exposes": [
+    {
+      "key": "./mount",
+      "outFileName": "mount-JFPKK5CI.js"
+    }
+  ]
+}
