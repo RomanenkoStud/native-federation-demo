@@ -24,7 +24,7 @@ export class ProjectsWrapperPage implements OnInit, OnDestroy {
   async ngOnInit() {
     try {
       const m = await loadRemoteModule({
-        remoteName: 'mfe1',
+        remoteEntry: 'http://localhost:3001/remoteEntry.json',
         exposedModule: './mount',
       });
 

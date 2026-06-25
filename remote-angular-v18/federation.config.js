@@ -4,7 +4,7 @@ module.exports = withNativeFederation({
   name: 'notifications',
 
   exposes: {
-    './Notifications': './src/app/components/notifications.ts',
+    './mount': './src/mount.ts',
   },
 
   // Angular 18 is intentionally NOT shared — it's incompatible with the shell's

@@ -1,42 +1,44 @@
-import { Component, ViewContainerRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { loadRemoteModule } from '@softarc/native-federation-runtime';
 
 @Component({
   selector: 'app-notifications-wrapper',
   template: `
-    <ng-container #mfeContainer></ng-container>
-    @if (loading) {
-      <p>Loading Notifications micro frontend...</p>
-    }
-    @if (error) {
-      <p style="color: #dc2626;">Failed to load Notifications remote: {{ error }}</p>
-    }
+    <div #mfeContainer>
+      @if (loading) {
+        <p>Loading Notifications micro frontend...</p>
+      }
+      @if (error) {
+        <p style="color: #dc2626;">Failed to load Notifications remote: {{ error }}</p>
+      }
+    </div>
   `,
 })
-export class NotificationsWrapperPage implements OnInit {
-  @ViewChild('mfeContainer', { read: ViewContainerRef, static: true })
-  container!: ViewContainerRef;
+export class NotificationsWrapperPage implements OnInit, OnDestroy {
+  @ViewChild('mfeContainer', { static: true }) container!: ElementRef;
 
   loading = true;
   error = '';
-
-  constructor(private cdr: ChangeDetectorRef) {}
+  private cleanup: { unmount: () => void } | null = null;
 
   async ngOnInit() {
     try {
       const m = await loadRemoteModule({
-        remoteName: 'notifications',
-        exposedModule: './Notifications',
+        remoteEntry: 'http://localhost:3003/remoteEntry.json',
+        exposedModule: './mount',
       });
 
-      this.container.createComponent(m.NotificationsComponent);
+      const mount = m.mount || m.default?.mount;
+      this.cleanup = await mount(this.container.nativeElement);
       this.loading = false;
-      this.cdr.detectChanges();
     } catch (err: any) {
       this.loading = false;
       this.error = err?.message || 'Unknown error';
-      this.cdr.detectChanges();
       console.error('Failed to load remote:', err);
     }
+  }
+
+  ngOnDestroy() {
+    this.cleanup?.unmount();
   }
 }

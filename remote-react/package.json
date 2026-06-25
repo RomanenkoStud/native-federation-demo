@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npx tsx build/build.ts",
     "serve": "live-server dist --port=3001 --cors --no-browser",
-    "start": "npm run build && npm run serve",
+    "start": "npm run build && concurrently \"npx tsx --watch build/build.ts\" \"npm run serve\"",
     "watch": "concurrently \"npx tsx --watch build/build.ts\" \"npm run serve\""
   },
   "dependencies": {
