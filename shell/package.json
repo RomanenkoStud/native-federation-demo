@@ -1,5 +1,5 @@
 {
-  "name": "nf-demo-shell",
+  "name": "shell",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

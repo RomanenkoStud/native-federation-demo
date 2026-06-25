@@ -1,13 +1,13 @@
 {
-  "name": "nf-demo",
+  "name": "native-federation-demo",
   "private": true,
   "scripts": {
-    "start": "concurrently -n remote,activity,shell -c blue,magenta,green \"npm start -w remote\" \"npm start -w activity\" \"npm start -w shell\"",
-    "build": "npm run build -w remote && npm run build -w activity && npm run build -w shell"
+    "start": "concurrently -n remote-react,remote-angular,shell -c blue,magenta,green \"npm start -w remote-react\" \"npm start -w remote-angular\" \"npm start -w shell\"",
+    "build": "npm run build -w remote-react && npm run build -w remote-angular && npm run build -w shell"
   },
   "workspaces": [
-    "remote",
-    "activity",
+    "remote-react",
+    "remote-angular",
     "shell"
   ],
   "devDependencies": {
