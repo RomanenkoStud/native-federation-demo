@@ -1,0 +1,10 @@
+{
+  "name": "remote-projects",
+  "shared": [],
+  "exposes": [
+    {
+      "key": "./mount",
+      "outFileName": "mount-OVOKODZP.js"
+    }
+  ]
+}
