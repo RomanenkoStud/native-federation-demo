@@ -1,0 +1,123 @@
+{
+  "name": "activity",
+  "shared": [
+    {
+      "packageName": "@angular/common",
+      "outFileName": "_angular_common.Kn4q2UQBOD.js",
+      "requiredVersion": "^21.2.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.2.17"
+    },
+    {
+      "packageName": "@angular/common/http",
+      "outFileName": "_angular_common_http.z870twjKUI.js",
+      "requiredVersion": "^21.2.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.2.17"
+    },
+    {
+      "packageName": "@angular/core",
+      "outFileName": "_angular_core.vzNMH2em64.js",
+      "requiredVersion": "^21.2.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.2.17"
+    },
+    {
+      "packageName": "@angular/core/primitives/di",
+      "outFileName": "_angular_core_primitives_di.TnjmWCvDXt.js",
+      "requiredVersion": "^21.2.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.2.17"
+    },
+    {
+      "packageName": "@angular/core/primitives/signals",
+      "outFileName": "_angular_core_primitives_signals.xiff98uYnK.js",
+      "requiredVersion": "^21.2.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.2.17"
+    },
+    {
+      "packageName": "@angular/platform-browser",
+      "outFileName": "_angular_platform_browser.0uUwD1jC1T.js",
+      "requiredVersion": "^21.2.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.2.17"
+    },
+    {
+      "packageName": "rxjs",
+      "outFileName": "rxjs.KKWdl83vMd.js",
+      "requiredVersion": "~7.8.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "7.8.2"
+    },
+    {
+      "packageName": "rxjs/operators",
+      "outFileName": "rxjs_operators.38oud6NCNM.js",
+      "requiredVersion": "~7.8.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "7.8.2"
+    },
+    {
+      "packageName": "tslib",
+      "outFileName": "tslib.FCAmgXnr7i.js",
+      "requiredVersion": "^2.3.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "2.8.1"
+    },
+    {
+      "singleton": false,
+      "strictVersion": false,
+      "version": "0.0.0",
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-HJSCEAXM",
+      "outFileName": "chunk-HJSCEAXM.js"
+    },
+    {
+      "singleton": false,
+      "strictVersion": false,
+      "version": "0.0.0",
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-NMV7NBRP",
+      "outFileName": "chunk-NMV7NBRP.js"
+    },
+    {
+      "singleton": false,
+      "strictVersion": false,
+      "version": "0.0.0",
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-2XELTG3R",
+      "outFileName": "chunk-2XELTG3R.js"
+    },
+    {
+      "singleton": false,
+      "strictVersion": false,
+      "version": "0.0.0",
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-A3HJ75UB",
+      "outFileName": "chunk-A3HJ75UB.js"
+    },
+    {
+      "singleton": false,
+      "strictVersion": false,
+      "version": "0.0.0",
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-4CLCTAJ7",
+      "outFileName": "chunk-4CLCTAJ7.js"
+    }
+  ],
+  "exposes": [
+    {
+      "key": "./ActivityFeed",
+      "outFileName": "ActivityFeed-2JHFFS4N.js"
+    }
+  ]
+}
