@@ -26,11 +26,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: remote-angular/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
-        working-directory: remote-angular
 
       - name: Build
         run: npx ng build
